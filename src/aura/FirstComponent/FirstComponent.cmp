@@ -1,0 +1,22 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" extensible="true" controller="GetAccountDetails">
+    <aura:attribute name="listOfAccountsInTab" type="Object[]" />
+    <aura:attribute name="searchString" type="String" default="A" />
+	<aura:attribute name="columns" type="List"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="maxRowSelection" type="Integer" default="5"/>
+    <aura:attribute name="sortedBy" type="String"/>
+    <aura:attribute name="sortedDirection" type="String" default="asc"	/>
+    <aura:attribute name="defaultSortDirection" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:datatable
+                keyField="id"
+                data="{! v.listOfAccountsInTab }"
+                columns="{! v.columns }"
+                maxRowSelection="{! v.maxRowSelection}"
+                sortedBy="{! v.sortedBy }"
+                onsort="{!c.updateColumnSorting}"
+                sortedDirection="{!v.sortedDirection}"
+                         />
+    
+    
+</aura:component>

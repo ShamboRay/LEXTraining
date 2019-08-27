@@ -1,0 +1,4 @@
+<aura:component >
+    <aura:attribute name="listOfAccounts" type="Object[]" default="['1','ada','test']" />  
+	<c:TableComponent listOfAccountsInTab="{!v.listOfAccounts}"/>
+</aura:component>

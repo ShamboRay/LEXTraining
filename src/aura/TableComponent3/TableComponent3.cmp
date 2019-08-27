@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" extends="c:ShowListOfAccounts" >
+    <p>Working I am not here</p>
+    
+</aura:component>

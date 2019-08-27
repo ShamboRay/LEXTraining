@@ -1,0 +1,33 @@
+<aura:component >
+    <aura:attribute name="listOfAccountsInTab" type="Object[]" />
+    <lightning:input name="input3" aura:id="Test" label="Search" onchange="{!c.getAccounts}" placeholder="type here..."/>
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="Name">ID</div>
+                </th>
+                
+                <th scope="col">
+                    <div class="slds-truncate" title="Name">Name</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Email">Email</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Phone">Phone</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.listOfAccountsInTab}" var="item">
+                <tr>
+                    <td> <p>{!item.Id}</p> </td>
+                    <td> <p>{!item.Name}</p> </td>
+                    <td> <p>{!item.Email}</p> </td>
+                    <td> <p>{!item.Phone}</p> </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

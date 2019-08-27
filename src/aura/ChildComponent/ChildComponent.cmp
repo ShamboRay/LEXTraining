@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" controller="GetAccountDetails">
+    <!--Register the component event in your child component Not in parent-->
+    <aura:attribute name="listOfAccounts" type="Object[]"/>
+    <aura:registerEvent name="cmpEvent" type="c:CmpEvent"/>
+    <lightning:input name="input3" aura:id="Test" label="Search" onchange="{!c.getAccounts}" placeholder="type here..."/>
+</aura:component>

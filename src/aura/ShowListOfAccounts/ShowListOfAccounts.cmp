@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" controller="GetAccountDetails" >
+    <aura:attribute name="listOfAccounts" type="Object[]" />  
+    <aura:attribute name="flag" type="boolean" default="false" />
+    <!---do init -->
+    
+    <br></br>
+    
+    {!v.flag}
+    <aura:if isTrue="{!v.flag}">
+        <c:TableComponent listOfAccountsInTab="{!v.listOfAccounts}"/>
+        <!--child component>-->
+    </aura:if>
+</aura:component>

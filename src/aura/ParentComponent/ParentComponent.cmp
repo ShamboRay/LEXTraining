@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="listOfAccountEmail" type="Object[]"/>
+    <aura:handler name="cmpEvent" event="c:CmpEvent" action="{!c.handleComponentEvent}"/>
+    <div style="height: 100px;">
+        <p>Parent Component</p>
+        <aura:if isTrue="{!v.listOfAccountEmail.length>0}">
+            Para-->
+            <aura:iteration items="{!v.listOfAccountEmail}" var="item">
+                <p>Name--{!item.Name};Phone-- {!item.Phone}</p>
+            </aura:iteration>
+        </aura:if>
+    </div>
+    <c:ChildComponent/>
+</aura:component>

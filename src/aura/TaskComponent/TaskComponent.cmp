@@ -1,0 +1,64 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" 
+                controller="dataTableCtrl">//server side
+    <!-- call doInit method on component load -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>//js function
+    
+	<!-- aura attributes to store data/values --> 
+	<aura:attribute name="listOfAllAccounts" type="Account[]"/> 
+    <aura:attribute name="PaginationList" type="Account[]"/> 
+    <aura:attribute name="startPage" type="Integer" />
+    <aura:attribute name="endPage" type="Integer"/>
+    <aura:attribute name="totalRecordsCount" type="Integer"/>
+    <aura:attribute name="pageSize" type="Integer" default="20"
+                    description="number of records to be display on per page"/>
+    <aura:attribute name="currentPage" type="integer" default="1"/>
+    <aura:attribute name="totalPagesCount" type="integer"/>
+    <aura:attribute name="bNoRecordsFound" type="boolean"/>
+			
+           <!-- data table start-->  
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr class="slds-text-title_caps">
+					<!--header checkbox for select all-->
+                        <th scope="col">
+                            <div class="slds-truncate" title="Name"></div>
+                        </th>
+                        
+                        <th scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Email">Email</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Phone">Phone</div>
+                        </th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.PaginationList}" var="obj">
+                        <tr>
+
+                            <th scope="row">
+                                <div aura-id="x" class="slds-truncate" title="{!obj.Email__c}">
+                                    {!obj.Email__c} 
+                                </div>
+                            </th>
+                            <th scope="row">
+                                <div class="slds-truncate" title="{!obj.Phone}">
+                                    <lightning:formattedPhone value="{!obj.Phone}" onclick="{!c.xyz}"/>
+                                </div>
+                            </th>
+                            
+                            
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+
+          
+
+</aura:component>
